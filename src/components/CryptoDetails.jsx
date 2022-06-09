@@ -26,7 +26,7 @@ function CryptoDetails(props) {
     // console.log(data)
     const cryptoDetails = data?.data?.coin;
     const asad = data?.data;
-    console.log(cryptoDetails.hVolume)
+    // console.log(cryptoDetails.hVolume)
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
