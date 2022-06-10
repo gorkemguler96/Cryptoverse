@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Select,Typography,Col,Row,Avatar,Card } from "antd";
 import moment from 'moment'
+import Loader from './Loader'
 
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import {useGetCryptosQuery} from "../services/cryptoApi";
@@ -16,7 +17,7 @@ function News({simplified}) {
 
     // const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News';
 
-    if(!cryptoNews?.value) return 'Loading...';
+    if(!cryptoNews?.value) return <Loader/>;
 
     return (
         <Row gutter={[24,24]}>
