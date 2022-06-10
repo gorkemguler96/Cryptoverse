@@ -4,7 +4,7 @@ import Chart from 'chart.js/auto';
 import { Col, Row,Typography } from "antd";
 
 const { Title, Text } = Typography;
-
+// burası yapılacak
 
 function LineChart({coinHistory,currentPrice,coinName}) {
 
