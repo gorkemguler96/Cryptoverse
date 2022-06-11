@@ -6,20 +6,19 @@ import { Col, Row,Typography } from "antd";
 const { Title, Text } = Typography;
 // burası yapılacak
 
-function LineChart({coinHistory,currentPrice,coinName}) {
+function LineChart({coinHistory,currentPrice,coinName, timeperiod}) {
 
     const coinPrice = [];
     const coinTimestamp = [];
 
     for(let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+        const date = new Date(coinHistory?.data?.history[i]?.timestamp*1000);
         coinPrice.push(coinHistory?.data?.history[i]?.price)
-        coinTimestamp.push(new Date(coinHistory?.data?.history[i]?.timestamp).toLocaleDateString())
-        // console.log(new Date(coinHistory?.data?.history[i]?.timestamp).toLocaleDateString())
-        // console.log(coinHistory)
+        coinTimestamp.push(timeperiod.includes("h") ? `${date.toLocaleString("en-US",{weekday: "short", hour: "2-digit" , minute: "2-digit", hourCycle: "h24" } )}` : new Date(coinHistory?.data?.history[i]?.timestamp*1000).toLocaleDateString())
     }
 
     const data = {
-        labels: coinTimestamp,
+        labels: coinTimestamp.reverse(),
         datasets: [
             {
                 label: 'Price In USD',
